@@ -17,6 +17,10 @@ You can customize the widget with:
 
 `value`: null, false or true
 
+`width`: force width of the animation
+
+`height`: force height of the animation
+
 `tristate`: true/false to enable null as an initial value
 
 `onChanged`: callback whenever to checkbox change his state

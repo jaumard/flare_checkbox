@@ -10,14 +10,18 @@ class FlareCheckbox extends StatefulWidget {
   final String animation;
   final bool value;
   final bool tristate;
+  final double width;
+  final double height;
   final Function(bool) onChanged;
 
   const FlareCheckbox({
     Key key,
+    @required this.onChanged,
     this.tristate = false,
     this.animation,
     bool value,
-    this.onChanged,
+    this.width,
+    this.height,
   })  : this.value = value ?? (tristate ? null : false),
         super(key: key);
 
@@ -44,6 +48,19 @@ class _FlareCheckboxState extends State<FlareCheckbox> {
 
   @override
   Widget build(BuildContext context) {
+    Widget child = FlareActor(
+      widget.animation,
+      fit: BoxFit.contain,
+      shouldClip: false,
+      animation: currentState == null ? FlareCheckbox.unknownAnimationName : (currentState ? FlareCheckbox.onAnimationName : FlareCheckbox.offAnimationName),
+    );
+    if (widget.width != null || widget.height != null) {
+      child = Container(
+        width: widget.width,
+        height: widget.height,
+        child: child,
+      );
+    }
     return GestureDetector(
       onTap: () {
         setState(() {
@@ -55,10 +72,7 @@ class _FlareCheckboxState extends State<FlareCheckbox> {
           widget.onChanged(currentState);
         });
       },
-      child: FlareActor(
-        widget.animation,
-        animation: currentState == null ? FlareCheckbox.unknownAnimationName : (currentState ? FlareCheckbox.onAnimationName : FlareCheckbox.offAnimationName),
-      ),
+      child: child,
     );
   }
 }

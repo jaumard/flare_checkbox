@@ -35,6 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: FlareCheckbox(
+          onChanged: print,
           animation: 'assets/checkbox.flr',
           value: true,
         ),
