@@ -1,13 +1,17 @@
 library flare_checkbox;
 
 import 'package:flare_flutter/flare_actor.dart';
+import 'package:flare_flutter/flare_controller.dart';
 import 'package:flutter/widgets.dart';
 
 class FlareCheckbox extends StatefulWidget {
-  static const onAnimationName = 'On';
-  static const offAnimationName = 'Off';
-  static const unknownAnimationName = 'Unknown';
+  static const _onAnimationName = 'On';
+  static const _offAnimationName = 'Off';
+  static const _unknownAnimationName = 'Unknown';
   final String animation;
+  final String animationOn;
+  final String animationOff;
+  final String animationUnknown;
   final bool value;
   final bool tristate;
   final double width;
@@ -16,12 +20,15 @@ class FlareCheckbox extends StatefulWidget {
 
   const FlareCheckbox({
     Key key,
-    @required this.onChanged,
+    this.onChanged,
     this.tristate = false,
     this.animation,
     bool value,
     this.width,
     this.height,
+    this.animationOn = _onAnimationName,
+    this.animationOff = _offAnimationName,
+    this.animationUnknown = _unknownAnimationName,
   })  : this.value = value ?? (tristate ? null : false),
         super(key: key);
 
@@ -31,6 +38,8 @@ class FlareCheckbox extends StatefulWidget {
 
 class _FlareCheckboxState extends State<FlareCheckbox> {
   bool currentState;
+  bool _snapToEnd = true;
+  FlareController _controller;
 
   @override
   void initState() {
@@ -41,7 +50,9 @@ class _FlareCheckboxState extends State<FlareCheckbox> {
   @override
   void didUpdateWidget(FlareCheckbox oldWidget) {
     if (currentState != widget.value) {
-      currentState = widget.value;
+      setState(() {
+        currentState = widget.value;
+      });
     }
     super.didUpdateWidget(oldWidget);
   }
@@ -52,18 +63,23 @@ class _FlareCheckboxState extends State<FlareCheckbox> {
       widget.animation,
       fit: BoxFit.contain,
       shouldClip: false,
-      animation: currentState == null ? FlareCheckbox.unknownAnimationName : (currentState ? FlareCheckbox.onAnimationName : FlareCheckbox.offAnimationName),
+      snapToEnd: _snapToEnd,
+      controller: _controller,
+      animation: currentState == null ? widget.animationUnknown : (currentState ? widget.animationOn : widget.animationOff),
     );
     if (widget.width != null || widget.height != null) {
-      child = Container(
+      child = SizedBox(
         width: widget.width,
         height: widget.height,
         child: child,
       );
     }
     return GestureDetector(
-      onTap: () {
+      onTap: widget.onChanged == null
+          ? null
+          : () {
         setState(() {
+          _snapToEnd = false;
           if (currentState == null) {
             currentState = true;
           } else {

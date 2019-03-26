@@ -15,6 +15,12 @@ You can customize the widget with:
 
 `animation`: path/name to your flare animation
 
+`animationOn`: animation name of on state, default to On
+
+`animationOff`: animation name of off state, default to Off 
+
+`animationUnknown`: animation name of unknown state, default to Unknown
+
 `value`: null, false or true
 
 `width`: force width of the animation
