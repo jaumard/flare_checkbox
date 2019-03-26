@@ -1,5 +1,7 @@
 # flare_checkbox
 
+[![pub package](https://img.shields.io/pub/v/flare_checkbox.svg)](https://pub.dartlang.org/packages/flare_checkbox)
+
 Checkbox widget with two or three state animation with a Flare animation of your choice 
 
 ## Usage
