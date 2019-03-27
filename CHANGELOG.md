@@ -1,3 +1,7 @@
+## [1.0.1+] - 27/03/2019
+
+* fix snapToEnd when controlling checkbox by it's value and not by gesture
+
 ## [1.0.1] - 23/03/2019
 
 * Use snapToEnd to prevent intro animation on widget creation

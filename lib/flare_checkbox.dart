@@ -51,6 +51,7 @@ class _FlareCheckboxState extends State<FlareCheckbox> {
   void didUpdateWidget(FlareCheckbox oldWidget) {
     if (currentState != widget.value) {
       setState(() {
+        _snapToEnd = false;
         currentState = widget.value;
       });
     }
