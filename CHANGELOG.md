@@ -1,4 +1,8 @@
-## [1.0.1+] - 27/03/2019
+## [1.0.2] - 09/07/2019
+
+* upgrade flare deps to be compatible with last flutter stable
+
+## [1.0.1+1] - 27/03/2019
 
 * fix snapToEnd when controlling checkbox by it's value and not by gesture
 
