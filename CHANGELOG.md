@@ -1,3 +1,7 @@
+## [1.0.3] - 12/02/2020
+
+* upgrade flare deps to be compatible with last flutter stable
+
 ## [1.0.2] - 09/07/2019
 
 * upgrade flare deps to be compatible with last flutter stable

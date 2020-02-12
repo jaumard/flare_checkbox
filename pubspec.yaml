@@ -1,15 +1,15 @@
 name: flare_checkbox
 description: Checkbox widget with two or three state animation with a Flare animation of your choice 
-version: 1.0.2
+version: 1.0.3
 author: jaumard <jimmy.aumard@gmail.com>
 homepage: https://github.com/jaumard/flare_checkbox.git
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
-  flutter: ">=1.7.8 < 2.0.0"
+  flutter: ">=1.7.8 <2.0.0"
 
 dependencies:
-  flare_flutter: ^1.5.4
+  flare_flutter: ^2.0.1
 
   flutter:
     sdk: flutter
