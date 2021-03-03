@@ -2,7 +2,9 @@
 
 [![pub package](https://img.shields.io/pub/v/flare_checkbox.svg)](https://pub.dartlang.org/packages/flare_checkbox)
 
-Checkbox widget with two or three state animation with a Flare animation of your choice 
+Checkbox widget with two or three state animation with a Flare animation of your choice
+
+If you're using Rive instead of Flare please use [rive_checkbox](https://pub.dartlang.org/packages/rive_checkbox)
 
 ## Usage
 

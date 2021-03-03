@@ -1,3 +1,7 @@
+## [1.0.4] - 03/03/2021
+
+* update readme
+
 ## [1.0.3] - 12/02/2020
 
 * upgrade flare deps to be compatible with last flutter stable
