@@ -1,3 +1,7 @@
+## [2.0.0+1] - 16/04/2021
+
+* remove upper bound flutter
+
 ## [2.0.0] - 16/04/2021
 
 * migrate to null safety
