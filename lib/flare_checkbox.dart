@@ -12,18 +12,18 @@ class FlareCheckbox extends StatefulWidget {
   final String animationOn;
   final String animationOff;
   final String animationUnknown;
-  final bool value;
+  final bool? value;
   final bool tristate;
-  final double width;
-  final double height;
+  final double? width;
+  final double? height;
   final Function(bool) onChanged;
 
   const FlareCheckbox({
-    Key key,
-    this.onChanged,
+    Key? key,
+    required this.onChanged,
+    required bool? value,
+    required this.animation,
     this.tristate = false,
-    this.animation,
-    bool value,
     this.width,
     this.height,
     this.animationOn = _onAnimationName,
@@ -37,9 +37,9 @@ class FlareCheckbox extends StatefulWidget {
 }
 
 class _FlareCheckboxState extends State<FlareCheckbox> {
-  bool currentState;
+  bool? currentState;
   bool _snapToEnd = true;
-  FlareController _controller;
+  FlareController? _controller;
 
   @override
   void initState() {
@@ -66,7 +66,7 @@ class _FlareCheckboxState extends State<FlareCheckbox> {
       shouldClip: false,
       snapToEnd: _snapToEnd,
       controller: _controller,
-      animation: currentState == null ? widget.animationUnknown : (currentState ? widget.animationOn : widget.animationOff),
+      animation: currentState == null ? widget.animationUnknown : (currentState! ? widget.animationOn : widget.animationOff),
     );
     if (widget.width != null || widget.height != null) {
       child = SizedBox(
@@ -84,9 +84,9 @@ class _FlareCheckboxState extends State<FlareCheckbox> {
           if (currentState == null) {
             currentState = true;
           } else {
-            currentState = !currentState;
+            currentState = !currentState!;
           }
-          widget.onChanged(currentState);
+          widget.onChanged!(currentState);
         });
       },
       child: child,
